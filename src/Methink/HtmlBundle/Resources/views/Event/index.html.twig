@@ -3,5 +3,16 @@
 {% block title %}MethinkHtmlBundle:Event:index{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Event:index page</h1>
+
+	<ul>
+	{% for data in datas %}
+		<li>
+			<h2>{{ data.title }}</h2>
+			<h5><em>{{ data.startAt.format('H:i:s') }}</em> - <em>{{ data.endAt.format('H:i:s') }}</em></h5>
+			<p>{{ data.content }}</p>
+			<p>Creator: {{ data.user.username }}</p>
+		</li>
+	{% endfor %}
+	</ul>
+
 {% endblock %}

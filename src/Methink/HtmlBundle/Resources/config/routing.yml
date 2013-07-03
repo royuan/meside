@@ -3,9 +3,9 @@ methink_html_homepage:
     defaults: { _controller: MethinkHtmlBundle:Default:index }
 
 index:
-    pattern: /
+    pattern: /event/
     defaults: { _controller: MethinkHtmlBundle:Event:index }
 
 create:
-    pattern: /create
+    pattern: /event/create
     defaults: { _controller: MethinkHtmlBundle:Event:create }
