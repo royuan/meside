@@ -1,3 +1,11 @@
 methink_html_homepage:
-    pattern:  /hello/{name}
+    pattern:  /
     defaults: { _controller: MethinkHtmlBundle:Default:index }
+
+index:
+    pattern: /
+    defaults: { _controller: MethinkHtmlBundle:Event:index }
+
+create:
+    pattern: /create
+    defaults: { _controller: MethinkHtmlBundle:Event:create }
