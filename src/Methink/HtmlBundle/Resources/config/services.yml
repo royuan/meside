@@ -1,0 +1,7 @@
+parameters:
+#    methink_html.example.class: Methink\HtmlBundle\Example
+
+services:
+#    methink_html.example:
+#        class: %methink_html.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

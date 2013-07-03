@@ -1,0 +1,4 @@
+methink_html:
+    resource: "@MethinkHtmlBundle/Resources/config/routing.yml"
+    prefix:   /
+

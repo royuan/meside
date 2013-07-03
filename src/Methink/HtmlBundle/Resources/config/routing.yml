@@ -1,0 +1,3 @@
+methink_html_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: MethinkHtmlBundle:Default:index }
