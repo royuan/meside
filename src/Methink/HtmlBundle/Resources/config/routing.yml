@@ -2,10 +2,10 @@ methink_html_homepage:
     pattern:  /
     defaults: { _controller: MethinkHtmlBundle:Default:index }
 
-index:
+methink_html_event_index:
     pattern: /event/
     defaults: { _controller: MethinkHtmlBundle:Event:index }
 
-create:
+methink_html_event_create:
     pattern: /event/create
     defaults: { _controller: MethinkHtmlBundle:Event:create }
