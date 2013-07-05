@@ -12,6 +12,11 @@ use \DateTime;
 
 class EventController extends Controller
 {
+    /**
+     * 列表页面控制器
+     *
+     * @return 视图
+     */
     public function indexAction()
     {
     	$event = $this->getDoctrine()
@@ -23,11 +28,58 @@ class EventController extends Controller
         ));
     }
 
+    /**
+     * 创建控制器
+     *
+     * @param Symfony Request 实例
+     *
+     * @return handleForm处理后返回的视图数据
+     */
     public function createAction(Request $request)
     {
-        // 创建 Event 实体
-		$event = new Event();
+        // TODO: 替换成通过 AUTH Session 获得的用户信息
+        // 临时方法，获得 User 对象，并设置用户对象
+        $user = $this->getDoctrine()
+                     ->getRepository('MethinkHtmlBundle:User')
+                     ->find(1);
 
+		$event = new Event();
+        $event->setStartAt(new DateTime('today'));
+        $event->setEndAt(new DateTime('tomorrow'));
+        $event->setUser($user);
+
+        return $this->handleForm($event, $request);
+    }
+
+    /**
+     * 编辑控制器
+     *
+     * @param int $event_id Event Entity ID
+     *
+     * @param Symfony Request 实例
+     *
+     * @return handleForm处理后返回的视图数据
+     */
+    public function editAction($event_id, Request $request)
+    {
+        $event = $this->getDoctrine()
+                      ->getRepository('MethinkHtmlBundle:Event')
+                      ->find($event_id);
+
+        return $this->handleForm($event, $request);
+    }
+
+    /**
+     * 创建 Form，验证 Form，存储 Form
+     *
+     * @param Entity Event 实例
+     *
+     * @param Symfony Request 实例
+     *
+     * @return 视图
+     */
+    protected function handleForm(Event $event, Request $request)
+    {
         // 建造 Form
         $form = $this->createForm(new EventType(), $event);
 
@@ -36,15 +88,6 @@ class EventController extends Controller
 
         // 验证
         if ($form->isValid()) {
-
-            // TODO: 替换成通过 AUTH Session 获得的用户信息
-            // 临时方法，获得 User 对象，并设置用户对象
-            $user = $this->getDoctrine()
-                         ->getRepository('MethinkHtmlBundle:User')
-                         ->find(1);
-
-            // 写入 event 外键 user
-            $event->setUser($user);
 
             // 写入数据库
             $em = $this->getDoctrine()->getManager();
