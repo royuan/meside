@@ -13,6 +13,10 @@
 			<h5><em>{{ data.startAt.format('H:i:s') }}</em> - <em>{{ data.endAt.format('H:i:s') }}</em></h5>
 			<p>{{ data.content }}</p>
 			<p>Creator: {{ data.user.username }}</p>
+			<p>
+				<a href="{{ url('methink_html_event_edit', {'event_id': data.id}) }}">编辑</a>
+				<a href="{{ url('methink_html_event_delete', {'event_id': data.id}) }}">删除</a>
+			</p>
 		</li>
 	{% endfor %}
 	</ul>
