@@ -9,3 +9,9 @@ methink_html_event_index:
 methink_html_event_create:
     pattern: /event/create
     defaults: { _controller: MethinkHtmlBundle:Event:create }
+    methods: [GET]
+
+methink_html_event_create_process:
+    pattern: /event/create
+    defaults: { _controller: MethinkHtmlBundle:Event:createProcess }
+    methods: [POST]
