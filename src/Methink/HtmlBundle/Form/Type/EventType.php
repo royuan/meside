@@ -13,12 +13,8 @@ class EventType extends AbstractType
 		$builder->add('content', 'textarea');
 		$builder->add('address', 'text');
 		$builder->add('organizer', 'text');
-		$builder->add('start_at', 'datetime', array(
-			'data' => new DateTime('today')
-		));
-		$builder->add('end_at', 'datetime', array(
-			'data' => new DateTime('tomorrow')
-		));
+		$builder->add('start_at', 'datetime');
+		$builder->add('end_at', 'datetime');
 		$builder->add('save', 'submit');
 	}
 
