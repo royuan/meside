@@ -74,16 +74,16 @@ class Event
     /**
      * @var integer
      *
-     * @ORM\Column(name="hidden", type="smallint")
+     * @ORM\Column(name="hidden", type="smallint", options={"default": "0"})
      */
-    private $hidden;
+    private $hidden = 0;
 
     /**
      * @var string
      *
      * @ORM\Column(name="coverpath", type="string", length=255)
      */
-    private $coverpath;
+    private $coverpath = '';
 
 
     /**
@@ -278,29 +278,6 @@ class Event
     public function getCoverpath()
     {
         return $this->coverpath;
-    }
-
-    /**
-     * Set userId
-     *
-     * @param integer $userId
-     * @return Event
-     */
-    public function setUserId($userId)
-    {
-        $this->userId = $userId;
-    
-        return $this;
-    }
-
-    /**
-     * Get userId
-     *
-     * @return integer 
-     */
-    public function getUserId()
-    {
-        return $this->userId;
     }
 
     /**
