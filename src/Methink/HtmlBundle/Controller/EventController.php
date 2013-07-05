@@ -70,6 +70,26 @@ class EventController extends Controller
     }
 
     /**
+     * 删除控制器
+     *
+     * @param int $event_id Event Entity ID
+     *
+     * @return 重定向至 index
+     */
+    public function deleteAction($event_id)
+    {
+        $event = $this->getDoctrine()
+                      ->getRepository('MethinkHtmlBundle:Event')
+                      ->find($event_id);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($event);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('methink_html_event_index'));
+    }
+
+    /**
      * 创建 Form，验证 Form，存储 Form
      *
      * @param Entity Event 实例
