@@ -1,0 +1,21 @@
+Methink\HtmlBundle\Entity\Event:
+    properties:
+        title:
+            - NotBlank: ~
+
+        content:
+            - NotBlank: ~
+
+        address:
+            - NotBlank: ~
+
+        organizer:
+            - NotBlank: ~
+
+        startAt:
+            - NotBlank: ~
+            - DateTime: ~
+
+        endAt:
+            - NotBlank: ~
+            - DateTime: ~
