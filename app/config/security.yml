@@ -29,12 +29,13 @@ security:
                 check_path: methink_html_login_check
                 login_path: methink_html_login
             logout:
-                path:   _demo_logout
-                target: _demo
+                path:   methink_html_logout
+                target: methink_html_homepage
             #anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
 
     access_control:
-        - { path: ^/demo/secured/hello/admin/, roles: ROLE_ADMIN }
+        - { path: ^/event, roles: ROLE_USER }
+        #- { path: ^/demo/secured/hello/admin/, roles: ROLE_ADMIN }
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
