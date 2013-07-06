@@ -1,7 +1,16 @@
+# Global
 methink_html_homepage:
     pattern:  /
     defaults: { _controller: MethinkHtmlBundle:Default:index }
 
+methink_html_login:
+    pattern: /login/
+    defaults: { _controller: MethinkHtmlBundle:Account:login }
+
+methink_html_login_check:
+    pattern: /login_check
+
+# Event
 methink_html_event_index:
     pattern: /event/
     defaults: { _controller: MethinkHtmlBundle:Event:index }
