@@ -37,16 +37,11 @@ class EventController extends Controller
      */
     public function createAction(Request $request)
     {
-        // TODO: 替换成通过 AUTH Session 获得的用户信息
-        // 临时方法，获得 User 对象，并设置用户对象
-        $user = $this->getDoctrine()
-                     ->getRepository('MethinkHtmlBundle:User')
-                     ->find(1);
-
+        // 获得 User 实体，创建 Event 实体的默认值
 		$event = new Event();
-        $event->setStartAt(new DateTime('today'));
-        $event->setEndAt(new DateTime('tomorrow'));
-        $event->setUser($user);
+        $event->setUser($this->getUser())
+              ->setStartAt(new DateTime('today'))
+              ->setEndAt(new DateTime('tomorrow'));
 
         return $this->handleForm($event, $request);
     }
